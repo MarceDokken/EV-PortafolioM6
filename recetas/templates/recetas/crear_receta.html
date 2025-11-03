@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Nueva Receta</title>
+</head>
+<body>
+    <h1>Crear Nueva Receta</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div>
+            <label>{{ form.titulo.label }}</label>
+            {{ form.titulo }}
+        </div>
+        
+        <div>
+            <label>{{ form.ingredientes.label }}</label>
+            {{ form.ingredientes }}
+        </div>
+        
+        <div>
+            <label>{{ form.instrucciones.label }}</label>
+            {{ form.instrucciones }}
+        </div>
+        
+        <div>
+            <label>{{ form.tiempo_preparacion.label }}</label>
+            {{ form.tiempo_preparacion }}
+        </div>
+        
+        <div>
+            <label>{{ form.porciones.label }}</label>
+            {{ form.porciones }}
+        </div>
+        
+        <div>
+            <label>{{ form.categoria.label }}</label>
+            {{ form.categoria }}
+        </div>
+        
+        <button type="submit">Guardar Receta</button>
+    </form>
+    
+    <br>
+    <a href="{% url 'mis_recetas' %}">← Volver a Mis Recetas</a>
+    <br>
+    <a href="{% url 'home' %}">← Volver al Inicio</a>
+</body>
+</html>

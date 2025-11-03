@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mis Recetas</title>
+</head>
+<body>
+    <h1>Mis Recetas</h1>
+    
+    {% if recetas %}
+        <ul>
+        {% for receta in recetas %}
+            <li>
+                <a href="{% url 'detalle_receta' receta.id %}">
+                    {{ receta.titulo }}
+                </a> - {{ receta.categoria }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No has creado ninguna receta todavía.</p>
+    {% endif %}
+    
+    <br>
+    <p><a href="{% url 'crear_receta' %}">Crear Nueva Receta</a></p>
+    <a href="{% url 'home' %}">← Volver al inicio</a>
+</body>
+</html>

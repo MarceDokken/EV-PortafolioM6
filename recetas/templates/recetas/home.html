@@ -5,6 +5,17 @@
 </head>
 <body>
     <h1>Bienvenido al Sistema de Recetas</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Hola, <strong>{{ user.username }}</strong>!</p>
+        <p><a href="{% url 'mis_recetas' %}">Mis Recetas</a></p>
+        <p><a href="{% url 'crear_receta' %}">Crear Nueva Receta</a></p>
+        <p><a href="{% url 'logout' %}">Cerrar Sesión</a></p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Iniciar Sesión</a></p>
+        <p><a href="{% url 'registro' %}">Registrarse</a></p>
+    {% endif %}
+    
     <p><a href="{% url 'lista_recetas' %}">Ver todas las recetas</a></p>
     <p><a href="/admin/">Panel de Administración</a></p>
 </body>
